@@ -18,10 +18,12 @@
 
 ## Tasks
 
-- [ ] 1.0 Setup and Configuration
-  - [ ] 1.1 Add `openai` to `pyproject.toml` dependencies.
-  - [ ] 1.2 Add `LLM_API_KEY`, `LLM_MODEL_NAME`, and `LLM_TIMEOUT` to `.env.example`.
-  - [ ] 1.3 Update configuration loading in the application to handle the new environment variables.
+- [x] 1.0 Setup and Configuration
+  - [x] 1.0.1 Ensure Virtual Environment is in the correct location and created.
+  - [x] 1.0.2 Generate `requirements.txt` file.
+  - [x] 1.1 Add `openai` to `pyproject.toml` dependencies.
+  - [x] 1.2 Add `LLM_API_KEY`, `LLM_MODEL_NAME`, and `LLM_TIMEOUT` to `.env.example`.
+  - [x] 1.3 Update configuration loading in the application to handle the new environment variables.
 - [ ] 2.0 Backend Development: Implement AI Assistant API
   - [ ] 2.1 Create `src/plantuml_gui/assistant.py` to encapsulate LLM API logic.
   - [ ] 2.2 Implement the prompt template for generating PlantUML.

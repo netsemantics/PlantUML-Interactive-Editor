@@ -20,6 +20,7 @@ dependencies = [
   "python-dotenv==1.1.1",
   "loguru==0.7.3",
   "pyquery==2.0.1",
+  "openai",
 ]
 description = ''
 keywords = []

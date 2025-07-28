@@ -25,6 +25,7 @@
 import hashlib
 import io
 import os
+from dotenv import load_dotenv
 
 from flask import Blueprint, Flask, jsonify, render_template, request, send_file
 from plantuml_gui.classes import Ellipse, PolyElement, RectElement
@@ -103,6 +104,7 @@ from .title import (
     find_title_bounds,
     get_title_text,
 )
+from .assistant import generate_plantuml_code
 from .whilepoly import (
     delete_while,
     editwhile,
@@ -996,6 +998,12 @@ def decode():
     hash = data["hash"]
     return plantuml_decode(hash)
 
+
+load_dotenv()
+
+LLM_API_KEY = os.getenv("LLM_API_KEY")
+LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "gpt-4o")
+LLM_TIMEOUT = int(os.getenv("LLM_TIMEOUT", 60))
 
 app = Flask(__name__)
 app.register_blueprint(plantuml)
