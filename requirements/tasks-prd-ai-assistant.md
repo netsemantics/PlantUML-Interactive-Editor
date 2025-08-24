@@ -24,13 +24,13 @@
   - [x] 1.1 Add `openai` to `pyproject.toml` dependencies.
   - [x] 1.2 Add `LLM_API_KEY`, `LLM_MODEL_NAME`, and `LLM_TIMEOUT` to `.env.example`.
   - [x] 1.3 Update configuration loading in the application to handle the new environment variables.
-- [ ] 2.0 Backend Development: Implement AI Assistant API
-  - [ ] 2.1 Create `src/plantuml_gui/assistant.py` to encapsulate LLM API logic.
-  - [ ] 2.2 Implement the prompt template for generating PlantUML.
-  - [ ] 2.3 Add the `/generateDiagram` route to `src/plantuml_gui/app.py`.
-  - [ ] 2.4 Implement input validation and error handling for the new route.
-  - [ ] 2.5 Integrate the `assistant.py` module with the `/generateDiagram` route.
-  - [ ] 2.6 Implement rate limiting for the `/generateDiagram` endpoint.
+- [x] 2.0 Backend Development: Implement AI Assistant API
+  - [x] 2.1 Create `src/plantuml_gui/assistant.py` to encapsulate LLM API logic.
+  - [x] 2.2 Implement the prompt template for generating PlantUML.
+  - [x] 2.3 Add the `/generateDiagram` route to `src/plantuml_gui/app.py`.
+  - [x] 2.4 Implement input validation and error handling for the new route.
+  - [x] 2.5 Integrate the `assistant.py` module with the `/generateDiagram` route.
+  - [x] 2.6 Implement rate limiting for the `/generateDiagram` endpoint.
 - [ ] 3.0 Frontend Development: Integrate AI Assistant UI
   - [ ] 3.1 Add a "Generate with AI" button to the toolbar in `src/plantuml_gui/templates/index.html`.
   - [ ] 3.2 Create a modal with a textarea for the user's description in `index.html`.

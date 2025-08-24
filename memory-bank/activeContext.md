@@ -11,10 +11,13 @@ The current focus is on implementing the AI Assistant feature for the PlantUML I
 -   **`requirements.txt` Generation:** A `requirements.txt` file has been generated to capture the exact dependencies for easy replication.
 -   **Environment Variable Loading:** `src/plantuml_gui/app.py` has been modified to load `LLM_API_KEY`, `LLM_MODEL_NAME`, and `LLM_TIMEOUT` from the `.env.example` file using `python-dotenv`.
 -   **Task List Update:** The `tasks-prd-ai-assistant.md` file has been updated to reflect the completion of Setup and Configuration tasks (1.0.1, 1.0.2, 1.1, 1.2, 1.3).
+-   **Backend Development:**
+    -   `src/plantuml_gui/assistant.py` has been created and implemented to encapsulate LLM API logic and prompt templating (tasks 2.1, 2.2).
+    -   `src/plantuml_gui/app.py` has been modified to add the `/generateDiagram` route, integrate the `AIAssistant` module, implement input validation, and apply rate limiting (tasks 2.3, 2.4, 2.5, 2.6).
 
 ## Next Steps
 
-The next steps are to proceed with the Backend Development tasks, starting with **2.1 Create `src/plantuml_gui/assistant.py` to encapsulate LLM API logic.**
+The next steps are to proceed with the Frontend Development tasks, starting with **3.1 Add a "Generate with AI" button to the toolbar in `src/plantuml_gui/templates/index.html`.**
 
 ## Active Decisions and Considerations
 

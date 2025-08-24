@@ -26,8 +26,9 @@ import hashlib
 import io
 import os
 from dotenv import load_dotenv
-
 from flask import Blueprint, Flask, jsonify, render_template, request, send_file
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from plantuml_gui.classes import Ellipse, PolyElement, RectElement
 
 from .__about__ import __version__
@@ -104,7 +105,6 @@ from .title import (
     find_title_bounds,
     get_title_text,
 )
-from .assistant import generate_plantuml_code
 from .whilepoly import (
     delete_while,
     editwhile,
@@ -113,6 +113,7 @@ from .whilepoly import (
     get_while_line,
     whiletotext,
 )
+from .assistant import AIAssistant
 
 plantuml = Blueprint(
     "plantuml_gui",
@@ -168,6 +169,25 @@ def renderpng():
         as_attachment=True,
         download_name="generated-image.png",  # Filename when downloaded
     )
+
+
+@plantuml.route("/generateDiagram", methods=["POST"])
+@limiter.limit("60 per minute") # Apply rate limit as per PRD
+def generate_diagram():
+    data = request.get_json()
+    user_description = data.get("description")
+
+    if not user_description or not isinstance(user_description, str):
+        return jsonify({"error": "Invalid or missing 'description' in request."}), 400
+
+    try:
+        plantuml_code = generate_plantuml_code(user_description)
+        svg_content = _create_svg_from_uml(plantuml_code)
+        return jsonify({"plantuml": plantuml_code, "svg": svg_content})
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 422
+    except Exception as e:
+        return jsonify({"error": f"An unexpected error occurred: {e}"}), 500
 
 
 @plantuml.route("/addParticipant", methods=["POST"])
@@ -1007,3 +1027,12 @@ LLM_TIMEOUT = int(os.getenv("LLM_TIMEOUT", 60))
 
 app = Flask(__name__)
 app.register_blueprint(plantuml)
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["60 per minute"],
+    storage_uri="memory://",
+)
+
+ai_assistant = AIAssistant()

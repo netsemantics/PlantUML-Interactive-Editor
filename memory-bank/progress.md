@@ -7,18 +7,12 @@
 -   **Configuration Loading:** The Flask application (`app.py`) is configured to load LLM-related environment variables (`LLM_API_KEY`, `LLM_MODEL_NAME`, `LLM_TIMEOUT`) from `.env.example`.
 -   **Task Tracking:** The `tasks-prd-ai-assistant.md` file is being used to track progress, with all "Setup and Configuration" tasks marked as complete.
 -   **Memory Bank:** The core memory bank files (`projectbrief.md`, `productContext.md`, `systemPatterns.md`, `techContext.md`, `activeContext.md`, `progress.md`) have been created and populated with initial context.
+-   **Backend Development:** All tasks under "2.0 Backend Development: Implement AI Assistant API" are complete. This includes creating `assistant.py`, implementing the prompt template, adding the `/generateDiagram` route to `app.py`, implementing input validation and error handling, integrating `assistant.py`, and implementing rate limiting.
 
 ## What's left to build
 
 The remaining tasks are as per `tasks-prd-ai-assistant.md`:
 
--   **2.0 Backend Development: Implement AI Assistant API**
-    -   2.1 Create `src/plantuml_gui/assistant.py` to encapsulate LLM API logic.
-    -   2.2 Implement the prompt template for generating PlantUML.
-    -   2.3 Add the `/generateDiagram` route to `src/plantuml_gui/app.py`.
-    -   2.4 Implement input validation and error handling for the new route.
-    -   2.5 Integrate the `assistant.py` module with the `/generateDiagram` route.
-    -   2.6 Implement rate limiting for the `/generateDiagram` endpoint.
 -   **3.0 Frontend Development: Integrate AI Assistant UI**
     -   3.1 Add a "Generate with AI" button to the toolbar in `src/plantuml_gui/templates/index.html`.
     -   3.2 Create a modal with a textarea for the user's description in `index.html`.
@@ -36,7 +30,7 @@ The remaining tasks are as per `tasks-prd-ai-assistant.md`:
 
 ## Current status
 
-All initial setup and configuration tasks (1.0.1 to 1.3) are complete. The memory bank has been initialized.
+All initial setup and configuration tasks (1.0.1 to 1.3) and all backend development tasks (2.1 to 2.6) are complete. The memory bank has been initialized and updated.
 
 ## Known issues
 

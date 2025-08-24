@@ -21,6 +21,7 @@ dependencies = [
   "loguru==0.7.3",
   "pyquery==2.0.1",
   "openai",
+  "Flask-Limiter[fastapi]==3.5.1", # Adding Flask-Limiter for rate limiting
 ]
 description = ''
 keywords = []
